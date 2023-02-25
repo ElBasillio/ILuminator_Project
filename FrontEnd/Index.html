@@ -4,15 +4,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="\FrontEnd\style.css" rel="stylesheet" type="text/css">
   <title>ILuminator</title>
 </head>
 <body>
-  <div style="display: flex; align-items: center; gap: 10px;" id="input-area">
-    <textarea type="text" id="text-input" style="width: 300px;"></textarea>
-    <button onclick="showText()">Розібрати текст</button>
+  <!--NavBar-->
+  <div>
+    <header style="filter: drop-shadow(0px 10px 25px rgba(68, 68, 68, 0.25));">
+        <img src="\logo.png" alt="logo" class="logo"
+        height="80"
+        />
+      <nav>
+        <ul class="nav_links">
+          <li><a href="#">Пропозиції</a></li>
+          <li><a href="#">Деталі</a></li>
+          <li><a href="#">Регістрація</a></li>
+        </ul>
+      </nav>
+      <a class="contacts" href="#"><button>Contact</button></a>
+    </header>
   </div>
-
-  <div id="text-output" style="font-size: 30px; font-weight: 700; display:flex; align-items: center; justify-content: center;"/>
+  
+  <!--About Iluminator-->>
+  <div >
+    <h2>Про "Ілюмінатор"</h2>
+    <div >
+      <p>Цей застосунок розроблений студентами за для пришвидшення читання, адже хто як не ми знаємо цю ситуацію,
+        коли потрібно прочитати “тонни” літератури, а часу обмаль. Тож ми знайшли техніку читання, котра пришвидшує швидкість читання в рази!</p>
+      <p>Перейдемо до фактів. Згідно дослідженнь - середня швидкість читання дорослої людини становить 150–200 слів за хвилину. Наша програма пропонує методику при якій ви з легкістю зможете читати з швидкістю 500 слів за хвилину!</p>
+      <p>Принцип роботи програми полягає у тому, що кожне речення розбивається по слову і ці слова подаються у швидкому темпі один за одним. Це в свою чергу допомагає збільшувати рівень концентрації, та швидше читати слова, адже нам не заважатиме та інформація, котра знаходиться на переферії.</p>  
+      <p>Отож пропонуємо вам протестувати як це працює</p>
+    </div>
+           
+  </div>
+ 
+  <!-- Functional-->
+  <div>
+    <!-- Вввід тексту-->
+   <div style="display: flex; align-items: center; padding-left: 60% ; gap: 10px;" id="input-area">  
+      <textarea type="text" id="text-input" style="width: 300px;"></textarea>
+      <button onclick="showText()">Розібрати текст</button>
+    </div>
+    <!-- Вивід тексту-->
+    <div id="text-output" style="font-size: 30px; font-weight: 700; display:flex; align-items: center; justify-content: center;"/>
+  </div>
   
   <script src="\BackEnd\app.js"></script>
 </body>
