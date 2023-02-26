@@ -69,5 +69,31 @@ textarea{
     border-radius: 5;
 }
 
+.about {
+    position: absolute;
+    font-family: 'Montserrat Alternates', sans-serif;
+    padding: 5% 5%;
+    padding-right: 60%;
+    margin-right: 60%;
+    padding-right: 2%; 
+}
+
+.about_ilumin{
+    padding: 5% 5%;
+    text-align:center
+}
+
+.aboutH {
+    padding: 2% 5%; 
+}
+
+.input {
+    margin-top: 15%;
+    display: flex; 
+    align-items: center; 
+    padding-left: 60% ;
+    gap: 10px;
+}
+
 
 
