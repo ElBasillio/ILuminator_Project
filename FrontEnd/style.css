@@ -88,12 +88,24 @@ textarea{
 }
 
 .input {
-    margin-top: 15%;
+    margin-top: 20%;
     display: flex; 
     align-items: center; 
-    padding-left: 60% ;
+    padding-left: 40% ;
     gap: 10px;
 }
 
+.buttonNewPage {
+    display: inline-block;
+    background-color: #e2e2e2;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 18%;
+    margin-left: 62%;
+    position: absolute;
+
+  }
 
 
