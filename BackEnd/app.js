@@ -15,6 +15,6 @@ function showText() {
           return clearInterval(intervalId); 
         }
         textNode.innerText = " " + words.shift();
-      }, 500);
+      }, 100);
     }
   }
