@@ -1,3 +1,5 @@
+let speed = 500;
+
 function showText() {
   const x = document.getElementById("text-input");
   const text = x.value;
@@ -15,6 +17,18 @@ function showText() {
         return clearInterval(intervalId); 
       }
       textNode.innerText = " " + words.shift();
-    }, 500);
+    }, speed);
   }
+}
+
+function speedIncrease{
+  return x = x + 50;
+}
+
+function speedDecrease{
+  return x = x - 50;
+}
+
+function speedSet{
+
 }
