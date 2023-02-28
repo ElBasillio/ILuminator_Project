@@ -1,4 +1,5 @@
-let speed = 500;
+let varSpeed = 500;
+
 
 function showText() {
   const x = document.getElementById("text-input");
@@ -17,18 +18,21 @@ function showText() {
         return clearInterval(intervalId); 
       }
       textNode.innerText = " " + words.shift();
-    }, speed);
+    }, varSpeed);
   }
 }
 
-function speedIncrease{
-  return x = x + 50;
+function speedIncrease(){
+  return varSpeed += 50;
 }
 
-function speedDecrease{
-  return x = x - 50;
+function speedDecrease(){
+  return varSpeed -= 50;
 }
 
-function speedSet{
+//Сюди вписувати кількість слів за хвилину
+function speedSet(){
 
 }
+//Зробити грамотний вивід швидкості слів
+document.getElementById("hereSpeed").innerHTML=varSpeed;

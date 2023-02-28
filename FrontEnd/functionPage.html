@@ -33,6 +33,15 @@
    </div>
    <!-- Вивід тексту-->
   <div id="text-output" style="font-size: 30px; font-weight: 700; display:flex; align-items: center; justify-content: center;">
+    <!--Керування швидкістю-->
+    <div class="speedControl">
+      <button onclick="speedIncrease()">Збільшити швидкість</button>
+      <button onclick="speedDecrease()">Зменшити швидкість</button>
+      <textarea  name="setSpeed" id="setSpeed" cols="30" rows="2"></textarea>
+      <!--Показ швидкості-->
+      <div id="hereSpeed"></div>
+    </div>
+   
 </div>
 <script src="\BackEnd\app.js"></script>
 </body>

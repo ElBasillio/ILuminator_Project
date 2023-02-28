@@ -106,6 +106,12 @@ textarea{
     margin-left: 62%;
     position: absolute;
 
-  }
+}
+
+.speedControl{
+    display: flex;
+    gap: 5px;
+    margin-top: 1%;
+}
 
 
