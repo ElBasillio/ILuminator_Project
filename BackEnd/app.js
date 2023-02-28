@@ -35,4 +35,5 @@ function speedSet(){
 
 }
 //Зробити грамотний вивід швидкості слів
+//Це разовий вивід
 document.getElementById("hereSpeed").innerHTML=varSpeed;
