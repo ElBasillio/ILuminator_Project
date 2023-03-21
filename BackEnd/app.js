@@ -31,14 +31,19 @@ function speedDecrease() {
   document.getElementById("hereSpeed").innerHTML = varSpeed;
 }
 
-function speedSet() {}
-
-//Сюди вписувати кількість слів за хвилину
 function speedSet() {
-  varSpeed =
-    60000 / parseInt(document.getElementById("words-per-minute").value);
-  document.getElementById("hereSpeed").innerHTML = varSpeed;
+  var wordsPerMinute = parseInt(
+    document.getElementById("words-per-minute").value
+  );
+  if (wordsPerMinute > 0) {
+    varSpeed = wordsPerMinute;
+    document.getElementById("setSpeed").innerHTML =
+      wordsPerMinute + " words per minute";
+    showText();
+  }
 }
+//Сюди вписувати кількість слів за хвилину
+
 //Зробити грамотний вивід швидкості слів
 //Це разовий вивід
 document.getElementById("hereSpeed").innerHTML = varSpeed;
