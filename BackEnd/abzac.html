@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Розпiзнавання абзацiв</title>
+  </head>
+  <body>
+    <div id="text">
+      <p>Перший абзац</p>
+      <p>Другий абзац</p>
+      <p>Третiй абзац</p>
+    </div>
+
+    <script>
+      var text = document.getElementById("text");
+
+      var paragraphs = text.getElementsByTagName("p");
+
+      for (var i = 0; i < paragraphs.length; i++) {
+        console.log(paragraphs[i].innerHTML);
+      }
+    </script>
+  </body>
+</html>
+
