@@ -31,6 +31,19 @@
 
 
 
+<script>
 
+    const InputPass = document.getElementById('form-pass');
+    const iconPass = document.getElementById('pass-icon');
+    
+    iconPass.addEventListener('click', () => {
+        if(InputPass.getAttribute('type') === "password") {
+            InputPass.setAttribute('type', 'text');
+        } else {
+            InputPass.setAttribute('type', 'password');
+        }
+    });
+    </script>
+    
 </body>
 </html>
