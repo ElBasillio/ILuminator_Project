@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset='utf-8'>
+        <meta http-equiv= 'X-UA-Combatible' content="IE=edge">
+        <title>login</title>
+        <meta name='viewport' content='width=device-width, initial-scale-1'>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="login"></div>
+        <img src="img/user.png" class="user">
+        <h1>login</h1>
+
+<form action="https://example.com/login.php" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Enter your name">
+    <label for="form-pass">Password</label>
+    <input type="password" id="form-pass" name="password" placeholder="Enter your password">
+   <span class="pass-icon" id="pass-icon"><img src="img/eye.png"></span>
+    <input type="submit" value="Login">
+</form>
+
+</div>
+
+
+
+
+
+
+<script>
+
+    const InputPass = document.getElementById('form-pass');
+    const iconPass = document.getElementById('pass-icon');
+    
+    iconPass.addEventListener('click', () => {
+        if(InputPass.getAttribute('type') === "password") {
+            InputPass.setAttribute('type', 'text');
+        } else {
+            InputPass.setAttribute('type', 'password');
+        }
+    });
+    </script>
+    
+</body>
+</html>
