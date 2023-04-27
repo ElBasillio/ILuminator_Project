@@ -112,6 +112,11 @@ textarea{
     display: flex;
     gap: 5px;
     margin-top: 1%;
-}
+    justify-content: center;
+    align-items: center;
+  }
+  
 
-
+.pauseControl {
+    display: none;
+  }
