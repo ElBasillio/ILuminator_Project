@@ -1,16 +1,89 @@
-+<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>Читання тексту з PDF-файлу</title>
-</head>
-<body>
-  <div>
-    <input type="file" id="file-input">
-    <button id="read-btn">Прочитати</button>
-  </div>
-  <div id="text-container"></div>
+  <head>
+    <meta charset="utf-8">
+    <title>PDF Text Reader</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        line-height: 1.5;
+      }
+      #text-output {
+        height: 100vh;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="pdf-file-input" accept=".pdf">
+    <button onclick="showText()">Read Text</button>
+    <div id="text-output"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script>
+      function showText() {
+        const fileInput = document.getElementById("pdf-file-input");
+        const file = fileInput.files[0];
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
-  <script src="/BackEnd/PDF.js"></script>
-</body>
+        // Використовувати pdf.js для отримання тексту з PDF
+        const fileReader = new FileReader();
+        fileReader.onload = function() {
+          const typedarray = new Uint8Array(this.result);
+          pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+            const totalPages = pdf.numPages;
+            let text = "";
+
+            for (let i = 1; i <= totalPages; i++) {
+              pdf.getPage(i).then(function(page) {
+                page.getTextContent().then(function(content) {
+                  content.items.forEach(function(item) {
+                    text += item.str + " ";
+                  });
+
+                  // Виконати після отримання всього тексту
+                  if (i === totalPages) {
+                    const textNode = document.getElementById("text-output");
+                    const words = text.split(" ");
+
+                    // далі код для відтворення тексту як у попередній версії функції showText()
+                    textNode.style.height = "100vh";
+
+                    // Increase speed 10% of target speed until target speed is reached
+                    const targetSpeed = 200; // set your desired speed here
+                    let currentSpeed = 100; // default speed
+                    const intervalTime = 150000 / currentSpeed;
+
+                    const intervalId = setInterval(function () {
+                      if (!words.length) {
+                        return clearInterval(intervalId);
+                      }
+
+                      textNode.innerText = " " + words.shift();
+
+                      // Increase speed until target speed is reached
+                      if (currentSpeed < targetSpeed) {
+                        const speedIncreaseRate = (targetSpeed - currentSpeed) * 0.1 / targetSpeed; // modify speed increase rate here
+                        currentSpeed += currentSpeed * speedIncreaseRate;
+                        clearInterval(intervalId);
+                        setInterval(function () {
+                          if (!words.length) {
+                            return clearInterval(intervalId);
+                          }
+
+                          textNode.innerText = " " + words.shift();
+                        }, 150000  );
+                      }
+                    }, intervalTime);
+                  }
+                });
+              });
+            }
+          });
+        };
+        fileReader.readAsArrayBuffer(file);
+      }
+    </script>
+  </body>
 </html>
