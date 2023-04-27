@@ -62,12 +62,12 @@ function showText() {
 }
 
 function speedIncrease() {
-  varSpeed += 10;
+  varSpeed += 100;
   document.getElementById("hereSpeed").innerHTML = varSpeed/10; // update displayed speed
 }
 
 function speedDecrease() {
-  varSpeed -= 10;
+  varSpeed -= 100;
   document.getElementById("hereSpeed").innerHTML = varSpeed/10; // update displayed speed
 }
 
