@@ -21,6 +21,14 @@ var varSpeed = 1000;
   }
 }
 */
+function getParagraphs() {
+  const x = document.getElementById("text-input");
+  const text = x.value;
+  const paragraphs = text.split("\n");
+  console.log(paragraphs); // вивести у консоль масив абзаців
+  return paragraphs;
+}
+
 function showText() {
   const x = document.getElementById("text-input");
   const text = x.value;
