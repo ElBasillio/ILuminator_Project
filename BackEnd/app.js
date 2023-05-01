@@ -25,7 +25,7 @@ function getParagraphs() {
   const x = document.getElementById("text-input");
   const text = x.value;
   const paragraphs = text.split("\n");
-  console.log(paragraphs); // вивести у консоль масив абзаців
+  console.log(paragraphs); 
   return paragraphs;
 }
 
@@ -124,6 +124,17 @@ function showTextWithPause() {
 
 function togglePause() {
   pause = !pause;
+  const pauseControl = document.querySelector('.pauseControl');
+  const resumeButton = pauseControl.querySelector('button:last-child');
+  resumeButton.style.display = 'inline-block';
+}
+function resume() {
+  // рядок коду для продовження тексту
+
+  // змінюємо стилі додаткової кнопки, щоб приховати її знову
+  const pauseControl = document.querySelector('.pauseControl');
+  const resumeButton = pauseControl.querySelector('button:last-child');
+  resumeButton.style.display = 'none';
 }
 
 

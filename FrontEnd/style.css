@@ -122,3 +122,7 @@ textarea{
 .pauseControl {
     display: none;
   }
+  .pauseControl button:last-child {
+    display: none;
+  }
+  
