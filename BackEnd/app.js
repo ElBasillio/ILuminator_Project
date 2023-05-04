@@ -90,12 +90,21 @@ function showTextWithPause() {
     pauseButton.style.bottom = "0"; // align the button to the bottom
     pauseButton.style.position = "absolute"; // position the button absolutely
     
+    // add continue button
+    const continueButton = document.createElement("button");
+    continueButton.innerHTML = "Продовжити";
+    continueButton.onclick = function() {
+      pause = false;
+      continueButton.style.display = "none";
+    };
+    pauseButton.appendChild(continueButton);
 
     const intervalId = setInterval(function () {
       if (pause) return; // check if pause is enabled
 
       if (!words.length) {
         pauseButton.style.display = "none"; // hide the pause button
+        continueButton.style.display = "none"; // hide the continue button
         return clearInterval(intervalId);
       }
 
@@ -111,6 +120,7 @@ function showTextWithPause() {
 
           if (!words.length) {
             pauseButton.style.display = "none"; // hide the pause button
+            continueButton.style.display = "none"; // hide the continue button
             return clearInterval(intervalId);
           }
 
