@@ -125,4 +125,8 @@ textarea{
   .pauseControl button:last-child {
     display: none;
   }
+  #current-paragraph {
+    background-color: yellow;
+  }
+  
   

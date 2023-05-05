@@ -25,8 +25,36 @@ function getParagraphs() {
   const x = document.getElementById("text-input");
   const text = x.value;
   const paragraphs = text.split("\n");
-  console.log(paragraphs); 
+  const output = document.getElementById("output");
+  output.innerHTML = ""; //очищуємо вивід перед виведенням абзаців
+  paragraphs.forEach((paragraph, index) => {
+    const p = document.createElement("p");
+    p.innerHTML = paragraph;
+    if (index === getCurrentParagraphIndex()) {
+      p.style.backgroundColor = "yellow"; // виділяємо поточний абзац
+      document.getElementById("current-paragraph").innerHTML = paragraph; // оновлюємо поточний абзац
+    }
+    output.appendChild(p);
+  });
   return paragraphs;
+}
+
+function getCurrentParagraphIndex() {
+  const x = document.getElementById("text-input");
+  const text = x.value;
+  const selectionStart = x.selectionStart;
+  const paragraphs = text.split("\n");
+  let currentIndex = 0;
+  let charCount = 0;
+  for (let i = 0; i < paragraphs.length; i++) {
+    const paragraph = paragraphs[i];
+    charCount += paragraph.length + 1; // додаємо один символ за роздільник абзаців
+    if (charCount > selectionStart) {
+      currentIndex = i;
+      break;
+    }
+  }
+  return currentIndex;
 }
 
 function showText() {
