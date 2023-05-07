@@ -21,48 +21,52 @@ var varSpeed = 1000;
   }
 }
 */
-function getParagraphs() {
-  const x = document.getElementById("text-input");
-  const text = x.value;
-  const paragraphs = text.split("\n");
-  const output = document.getElementById("output");
-  output.innerHTML = ""; //очищуємо вивід перед виведенням абзаців
-  let currentIndex = 0;
-  paragraphs.forEach((paragraph, index) => {
-    const p = document.createElement("p");
-    p.innerHTML = paragraph;
-    if (index === currentIndex) {
-      p.style.backgroundColor = "yellow"; // виділяємо поточний абзац
-      document.getElementById("current-paragraph").innerHTML = "Кількість абзаців в тексті: " + (currentIndex + 1);
-    }
-    output.appendChild(p);
-    currentIndex++;
-  });
+var varSpeed = 1000;
+var totalParagraphs = 0;
+var currentParagraphIndex = 0;
+
+function getParagraafs() {
+  var text = document.getElementById("text-input").value;
+  var paragraphs = text.split("\n");
+  totalParagraphs = paragraphs.length;
+  currentParagraphIndex = getCurrentParagraphIndex();
+  
+  var paragrafInfo = document.getElementById("paragrafInfo");
+  var currentParagraph = document.getElementById("current-paragraph");
+  
+  if (text === "") {
+    paragrafInfo.innerHTML = "Кількість абзаців в тексті: 0";
+    currentParagraph.innerHTML = "Поточний абзац: 0";
+  } else {
+    paragrafInfo.innerHTML = "Кількість абзаців в тексті: " + totalParagraphs;
+    currentParagraph.innerHTML = "Поточний абзац: " + (currentParagraphIndex + 1);
+  }
 }
 
 function getCurrentParagraphIndex() {
   const x = document.getElementById("text-input");
   const text = x.value;
-  const selectionStart = x.selectionStart;
+  const selectionEnd = x.selectionEnd;
   const paragraphs = text.split("\n");
   let currentIndex = 0;
   let charCount = 0;
+
+  if (text === "") {
+    return 0;
+  }
+
   for (let i = 0; i < paragraphs.length; i++) {
     const paragraph = paragraphs[i];
-    charCount += paragraph.length + 1; // додаємо один символ за роздільник абзаців
-    if (charCount > selectionStart) {
+    charCount += paragraph.length + 1; // add one for the newline character
+    if (charCount > selectionEnd) {
       currentIndex = i;
       break;
     }
   }
-  return currentIndex;
+  return currentIndex - 1;
 }
 
-// Обновляємо індекс поточного абзацу при зміні вмісту текстового поля
-document.getElementById("text-input").addEventListener("input", function() {
-  const currentIndex = getCurrentParagraphIndex();
-  document.getElementById("current-paragraph").innerHTML = "Кількість абзаців в тексті: " + (currentIndex + 1);
-});
+
 
 function showText() {
   const x = document.getElementById("text-input");

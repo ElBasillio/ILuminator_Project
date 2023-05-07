@@ -125,12 +125,21 @@ textarea{
   .pauseControl button:last-child {
     display: none;
   }
-  #current-paragraph {
+  #paragrafInfo {
+    display:flex;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 60px; /* збільшуємо відступ вниз */
     background-color:rgb(56, 231, 12) ;
   }
   
+  #current-paragraph{
+    display:flex;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px; /* зменшуємо відступ вниз */
+    margin-top: 20px; /* додаємо відступ зверху */
+    background-color: #40ff00;
+  }
   
   
