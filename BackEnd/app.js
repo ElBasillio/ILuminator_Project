@@ -32,7 +32,7 @@ function getParagraphs() {
     p.innerHTML = paragraph;
     if (index === getCurrentParagraphIndex()) {
       p.style.backgroundColor = "yellow"; // виділяємо поточний абзац
-      document.getElementById("current-paragraph").innerHTML = paragraph; // оновлюємо поточний абзац
+      document.getElementById("current-paragraph").innerHTML = "Поточний абзац: " + (index + 1);
     }
     output.appendChild(p);
   });
