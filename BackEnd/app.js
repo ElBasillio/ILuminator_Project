@@ -27,16 +27,17 @@ function getParagraphs() {
   const paragraphs = text.split("\n");
   const output = document.getElementById("output");
   output.innerHTML = ""; //очищуємо вивід перед виведенням абзаців
+  let currentIndex = 0;
   paragraphs.forEach((paragraph, index) => {
     const p = document.createElement("p");
     p.innerHTML = paragraph;
-    if (index === getCurrentParagraphIndex()) {
+    if (index === currentIndex) {
       p.style.backgroundColor = "yellow"; // виділяємо поточний абзац
-      document.getElementById("current-paragraph").innerHTML = "Поточний абзац: " + (index + 1);
+      document.getElementById("current-paragraph").innerHTML = "Кількість абзаців в тексті: " + (currentIndex + 1);
     }
     output.appendChild(p);
+    currentIndex++;
   });
-  return paragraphs;
 }
 
 function getCurrentParagraphIndex() {
@@ -56,6 +57,12 @@ function getCurrentParagraphIndex() {
   }
   return currentIndex;
 }
+
+// Обновляємо індекс поточного абзацу при зміні вмісту текстового поля
+document.getElementById("text-input").addEventListener("input", function() {
+  const currentIndex = getCurrentParagraphIndex();
+  document.getElementById("current-paragraph").innerHTML = "Кількість абзаців в тексті: " + (currentIndex + 1);
+});
 
 function showText() {
   const x = document.getElementById("text-input");

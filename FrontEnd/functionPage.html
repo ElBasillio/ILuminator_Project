@@ -30,7 +30,7 @@
   
    <!-- Ввід тексту -->
 <div class="input" id="input-area">  
-  <textarea type="text" id="text-input" style="width: 300px;"></textarea>
+  <textarea type="text" id="text-input" style="width: 300px;" oninput="getParagraafs()"></textarea>
   <button onclick="showTextWithPause()">Розібрати текст</button>
 </div>
 </div>
@@ -38,7 +38,7 @@
 <div class="output">
   <div id="text-output" style="font-size: 30px; font-weight: 700; display:flex; align-items: center; justify-content: center;"></div>
   <div class="current-paragraph" style="position: absolute; bottom: 0; right: 0;">
-    <span id="current-paragraph">Поточний абзац: 1 </span>
+    <span id="current-paragraph">Кількість абзаців в тексті: 1 </span>
   </div>
   
 
