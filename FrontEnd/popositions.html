@@ -23,3 +23,76 @@
     </nav>
     <a class="contacts" href="#"><button>Contact</button></a>
   </header>
+
+  <body>
+    <select name="font-select" id="font-select" onchange="changeFont()">
+      <option value="Montserrat Alternates" selected>Montserrat Alternates</option>
+      <option value="Arimo">Arimo</option>
+    </select>
+  </body>
+  
+  <script>
+    const changeFont = function() {
+      const newFont = document.getElementById("font-select").value;
+      document.body.style.fontFamily = newFont;
+    }
+  </script>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RGB зміна кольору фону</title>
+</head>
+<body>
+	<h1>RGB зміна кольору фону</h1>
+	
+	<label for="redRange">Червоний:</label>
+	<input type="range" id="redRange" min="0" max="255" value="255">
+	<br>
+	<label for="greenRange">Зелений:</label>
+	<input type="range" id="greenRange" min="0" max="255" value="255">
+	<br>
+	<label for="blueRange">Синій:</label>
+	<input type="range" id="blueRange" min="0" max="255" value="255">
+	<br><br>
+	
+	<button id="applyButton">Застосувати</button>
+	<button id="applyAllButton">Застосувати на всіх сторінках</button>
+
+	<script>
+		const redRange = document.getElementById("redRange");
+		const greenRange = document.getElementById("greenRange");
+		const blueRange = document.getElementById("blueRange");
+		const applyButton = document.getElementById("applyButton");
+		const applyAllButton = document.getElementById("applyAllButton");
+
+		applyButton.addEventListener("click", () => {
+			const redValue = redRange.value;
+			const greenValue = greenRange.value;
+			const blueValue = blueRange.value;
+			document.body.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+		});
+
+		applyAllButton.addEventListener("click", () => {
+			const redValue = redRange.value;
+			const greenValue = greenRange.value;
+			const blueValue = blueRange.value;
+			const color = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+			localStorage.setItem("backgroundColor", color);
+			alert("Колір фону збережено!");
+		});
+
+		// При завантаженні сторінки перевіряємо, чи є збережений колір фону в localStorage
+		if (localStorage.getItem("backgroundColor")) {
+			document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
+		}
+	</script>
+</body>
+</html>
+
+ 

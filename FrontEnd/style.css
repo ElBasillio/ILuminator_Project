@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap');
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-
-
-}
+* 
 
 li,a,button {
     font-family: 'Montserrat Alternates', sans-serif;
@@ -142,4 +135,30 @@ textarea{
     background-color: #40ff00;
   }
   
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;700&display=swap');
   
+  body {
+      font-family: 'Montserrat Alternates', sans-serif;
+  }
+
+  input[type=range] {
+	-webkit-appearance: none;
+	background-color: #ddd;
+	height: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: #555;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+}
