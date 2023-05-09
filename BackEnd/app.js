@@ -21,6 +21,53 @@ var varSpeed = 1000;
   }
 }
 */
+var varSpeed = 1000;
+var totalParagraphs = 0;
+var currentParagraphIndex = 0;
+
+function getParagraafs() {
+  var text = document.getElementById("text-input").value;
+  var paragraphs = text.split("\n");
+  totalParagraphs = paragraphs.length;
+  currentParagraphIndex = getCurrentParagraphIndex();
+  
+  var paragrafInfo = document.getElementById("paragrafInfo");
+  var currentParagraph = document.getElementById("current-paragraph");
+  
+  if (text === "") {
+    paragrafInfo.innerHTML = "Кількість абзаців в тексті: 0";
+    currentParagraph.innerHTML = "Поточний абзац: 0";
+  } else {
+    paragrafInfo.innerHTML = "Кількість абзаців в тексті: " + totalParagraphs;
+    currentParagraph.innerHTML = "Поточний абзац: " + (currentParagraphIndex + 1);
+  }
+}
+
+function getCurrentParagraphIndex() {
+  const x = document.getElementById("text-input");
+  const text = x.value;
+  const selectionEnd = x.selectionEnd;
+  const paragraphs = text.split("\n");
+  let currentIndex = 0;
+  let charCount = 0;
+
+  if (text === "") {
+    return 0;
+  }
+
+  for (let i = 0; i < paragraphs.length; i++) {
+    const paragraph = paragraphs[i];
+    charCount += paragraph.length + 1; // add one for the newline character
+    if (charCount > selectionEnd) {
+      currentIndex = i;
+      break;
+    }
+  }
+  return currentIndex - 1;
+}
+
+
+
 function showText() {
   const x = document.getElementById("text-input");
   const text = x.value;
@@ -82,12 +129,21 @@ function showTextWithPause() {
     pauseButton.style.bottom = "0"; // align the button to the bottom
     pauseButton.style.position = "absolute"; // position the button absolutely
     
+    // add continue button
+    const continueButton = document.createElement("button");
+    continueButton.innerHTML = "Продовжити";
+    continueButton.onclick = function() {
+      pause = false;
+      continueButton.style.display = "none";
+    };
+    pauseButton.appendChild(continueButton);
 
     const intervalId = setInterval(function () {
       if (pause) return; // check if pause is enabled
 
       if (!words.length) {
         pauseButton.style.display = "none"; // hide the pause button
+        continueButton.style.display = "none"; // hide the continue button
         return clearInterval(intervalId);
       }
 
@@ -103,6 +159,7 @@ function showTextWithPause() {
 
           if (!words.length) {
             pauseButton.style.display = "none"; // hide the pause button
+            continueButton.style.display = "none"; // hide the continue button
             return clearInterval(intervalId);
           }
 
@@ -116,6 +173,17 @@ function showTextWithPause() {
 
 function togglePause() {
   pause = !pause;
+  const pauseControl = document.querySelector('.pauseControl');
+  const resumeButton = pauseControl.querySelector('button:last-child');
+  resumeButton.style.display = 'inline-block';
+}
+function resume() {
+  // рядок коду для продовження тексту
+
+  // змінюємо стилі додаткової кнопки, щоб приховати її знову
+  const pauseControl = document.querySelector('.pauseControl');
+  const resumeButton = pauseControl.querySelector('button:last-child');
+  resumeButton.style.display = 'none';
 }
 
 

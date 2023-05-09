@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,21 +25,30 @@
   <a class="contacts" href="#"><button>Contact</button></a>
 </header>
   </div>
+  <div>
     <!-- Functional-->
   <div>
   
    <!-- Ввід тексту -->
 <div class="input" id="input-area">  
-  <textarea type="text" id="text-input" style="width: 300px;"></textarea>
+  <textarea type="text" id="text-input" style="width: 300px;" oninput="getParagraafs()"></textarea>
   <button onclick="showTextWithPause()">Розібрати текст</button>
+</div>
 </div>
 
 <div class="output">
   <div id="text-output" style="font-size: 30px; font-weight: 700; display:flex; align-items: center; justify-content: center;"></div>
+  <div class="paragrafInfo" style="position: absolute; bottom: 0; right: 0;">
+    <span id="paragrafInfo">Кількість абзаців в тексті: 1 </span>
+  </div><div class="current-paragraph" style="position: absolute; bottom: 0; right: 0" oninput = getCurrentParagraphIndex()>
+    <span id="current-paragraph-number">Поточний абзац: 1 </span>
+  </div>
+  
 
   <div class="pauseControl" style="position: absolute; bottom: 0;">
-    <button onclick="togglePause()">Пауза</button>
+    <button onclick="togglePause()">Пауза</button> <!-- Додаткова кнопка -->
   </div>
+  
 
   <!-- Керування швидкістю -->
   <div class="speedControl">
@@ -57,3 +67,4 @@
 </div>
 <script src="\BackEnd\app.js"></script>
 </body>
+</html>
