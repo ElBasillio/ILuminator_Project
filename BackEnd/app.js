@@ -28,8 +28,20 @@ var currentParagraphIndex = 0;
 function getParagraafs() {
   var text = document.getElementById("text-input").value;
   var paragraphs = text.split("\n");
-  totalParagraphs = paragraphs.length;
+  totalParagraphs = 0;
   currentParagraphIndex = getCurrentParagraphIndex();
+  
+  for (var i = 0; i < paragraphs.length; i++) {
+    
+    if (paragraphs[i].trim() !== "") {
+      
+      if (i > 0 && paragraphs[i - 1].trim() === "") {
+        totalParagraphs++; 
+      } else if (i === 0) {
+        totalParagraphs++; 
+      }
+    }
+  }
   
   var paragrafInfo = document.getElementById("paragrafInfo");
   var currentParagraph = document.getElementById("current-paragraph");
