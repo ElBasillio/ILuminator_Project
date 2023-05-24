@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "name": "iluminator_project",
   "version": "1.0.0",
   "description": "",
@@ -12,4 +13,23 @@
   "dependencies": {
     "serve": "^14.2.0"
   }
+=======
+  "dependencies": {
+    "firebase": "^9.20.0"
+  },
+  "name": "iluminator_project",
+  "description": "Snihur registration",
+  "version": "1.0.0",
+  "main": " app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "olsnihur@gmail.com",
+  "license": "ISC"
+>>>>>>> Stashed changes
 }

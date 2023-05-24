@@ -143,15 +143,26 @@ textarea{
   }
 
   input[type=range] {
-	-webkit-appearance: none;
 	background-color: #ddd;
 	height: 10px;
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
 
+
 input[type=range]:focus {
 	outline: none;
+}
+
+.form-5 {
+    /* Size and position */
+    width : 300px ;
+    margin : 60px auto 30px ;
+    position : relative ;
+ 
+    /* Styles */
+    border-radius : 5px ;
+    box-shadow : 0 0 5px rgba ( 0 , 0 , 0 , 0.1 ) , 0 3px 2px rgba ( 0 , 0 , 0 , 0.1 ) ;
 }
 
 input[type=range]::-webkit-slider-thumb {
