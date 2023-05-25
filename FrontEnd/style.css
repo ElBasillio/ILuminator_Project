@@ -47,7 +47,7 @@ button {
 }
 
 button:hover{
-    color: rgb(105, 0, 131);
+    color: rgba(0, 128, 100, 0.749);
 }
 
 img {
@@ -123,7 +123,7 @@ textarea{
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 60px; /* збільшуємо відступ вниз */
-    background-color:rgb(175, 175, 175) ;
+    background-color:rgb(198, 198, 198) ;
   }
   
   #current-paragraph{
@@ -132,7 +132,7 @@ textarea{
     font-weight: bold;
     margin-bottom: 10px; /* зменшуємо відступ вниз */
     margin-top: 20px; /* додаємо відступ зверху */
-    background-color: #b5b5b5;
+    background-color: #e2e2e2;
   }
   
   @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap');
