@@ -1,23 +1,8 @@
 {
   "name": "iluminator_project",
   "version": "1.0.0",
-  "description": "",
-  "main": "pdf.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "serve": "^14.2.0"
-  }
-  },
-  "name": "iluminator_project",
   "description": "Snihur registration",
-  "version": "1.0.0",
-  "main": " app.js",
-  "devDependencies": {},
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,4 +11,8 @@
     "javascript"
   ],
   "author": "olsnihur@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
