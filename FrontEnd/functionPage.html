@@ -30,12 +30,20 @@
   <div>
   
    <!-- Ввід тексту -->
-<div class="input" id="input-area">  
+<!--<div class="input" id="input-area">  
   <textarea type="text" id="text-input" style="width: 300px;" oninput="getParagraafs()"></textarea>
   <button onclick="showTextWithPause()">Читати</button>
 </div>
-</div>
+</div>-->
 
+   <div class="input" id="input-area">
+    <div class="input-wrapper">
+      <textarea type="text" id="text-input" style="width: 400px;height: 100px;" oninput="getParagraphs()"></textarea>
+      <span class="non-editable">Введіть ваш текст тут</span>
+    </div>
+    <button onclick="showTextWithPause()">Читати</button>
+  </div>
+  
 <div class="output">
   <div id="text-output" style="font-size: 30px; font-weight: 700; display:flex; align-items: center; justify-content: center;"></div>
   <div class="paragrafInfo" style="position: absolute; bottom: 0; right: 0;">
