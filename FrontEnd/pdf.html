@@ -70,5 +70,32 @@
       fileReader.readAsArrayBuffer(file);
     }
   </script>
+
+<script>
+  if (localStorage.getItem("selectedFont")) {
+    var selectedFont = localStorage.getItem("selectedFont");
+    var rootElement = document.documentElement;
+    rootElement.style.fontFamily = selectedFont;
+  }
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Інша сторінка</title>
+</head>
+<body>
+	
+
+	<script>
+		if (localStorage.getItem("selectedFont")) {
+      var selectedFont = localStorage.getItem("selectedFont");
+      var rootElement = document.documentElement;
+      rootElement.style.fontFamily = selectedFont;
+    }
+	</script>
 </body>
 </html>

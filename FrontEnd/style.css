@@ -66,7 +66,7 @@ textarea{
 
 .about {
     position: absolute;
-    font-family: 'Montserrat Alternates', sans-serif;
+   /* font-family: 'Montserrat Alternates', sans-serif;*/
     padding: 5% 5%;
     padding-right: 60%;
     margin-right: 60%;
@@ -138,9 +138,9 @@ textarea{
   @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;700&display=swap');
   
-  body {
+ /* body {
       font-family: 'Montserrat Alternates', sans-serif;
-  }
+  }*/
 
   input[type=range] {
 	background-color: #ddd;
@@ -173,3 +173,4 @@ input[type=range]::-webkit-slider-thumb {
 	border-radius: 50%;
 	cursor: pointer;
 }
+

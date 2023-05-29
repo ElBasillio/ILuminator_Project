@@ -6,14 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="\FrontEnd\style.css" rel="stylesheet" type="text/css">
   <title>ILuminator</title>
+  <style>
+    /* CSS styles for font change functionality */
+    .font-button {
+      font-family: Arial, sans-serif;
+      padding: 15px 20px;
+      margin-right: 20px;
+    }
+    
+    .font1 {
+      font-family: Arial, sans-serif;
+    }
+    
+    .font2 {
+      font-family: Times New Roman, serif;
+    }
+    
+    .font3 {
+      font-family: Courier New, monospace;
+    }
+  </style>
 </head>
 <body>
-  <!--NavBar-->
-  <div>
-    <header>
-      <a href="\FrontEnd\Index.html"><img src="\logo.png" alt="logo" class="logo"
-        height="80"
-        /></a>
+  <!-- NavBar -->
+  <header>
+    <a href="\FrontEnd\Index.html"><img src="\logo.png" alt="logo" class="logo" height="80"></a>
     <nav>
       <ul class="nav_links">
         <li><a href="\FrontEnd\popositions.html">Налаштування</a></li>
@@ -24,75 +41,78 @@
     <a class="contacts" href="#"><button>Contact</button></a>
   </header>
 
- 	 <body>
-    <select name="font-select" id="font-select" onchange="changeFont()">
-      <option value="Montserrat Alternates" selected>Montserrat Alternates</option>
-      <option value="Arimo">Arimo</option>
-    </select>
-  </body>
+  <!-- Background color change functionality -->
+  <h1>RGB зміна кольору фону</h1>
+	
+  <label for="redRange">Червоний:</label>
+  <input type="range" id="redRange" min="0" max="255" value="255"><br>
   
+  <label for="greenRange">Зелений:</label>
+  <input type="range" id="greenRange" min="0" max="255" value="255"><br>
+  
+  <label for="blueRange">Синій:</label>
+  <input type="range" id="blueRange" min="0" max="255" value="255"><br><br>
+	
+  <button id="applyButton">Застосувати</button>
+  <button id="applyAllButton">Застосувати на всіх сторінках</button>
+
   <script>
-    const changeFont = function() {
-      const newFont = document.getElementById("font-select").value;
-      document.body.style.fontFamily = newFont;
+    const redRange = document.getElementById("redRange");
+    const greenRange = document.getElementById("greenRange");
+    const blueRange = document.getElementById("blueRange");
+    const applyButton = document.getElementById("applyButton");
+    const applyAllButton = document.getElementById("applyAllButton");
+
+    applyButton.addEventListener("click", () => {
+      const redValue = redRange.value;
+      const greenValue = greenRange.value;
+      const blueValue = blueRange.value;
+      document.body.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+    });
+
+    applyAllButton.addEventListener("click", () => {
+      const redValue = redRange.value;
+      const greenValue = greenRange.value;
+      const blueValue = blueRange.value;
+      const color = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+      localStorage.setItem("backgroundColor", color);
+      alert("Колір фону збережено!");
+    });
+
+    if (localStorage.getItem("backgroundColor")) {
+      document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
     }
   </script>
 
+  <!-- Font change functionality -->
+  <h1>Зміна шрифту</h1>
+  
+  <button class="font-button" onclick="changeFont(1)">Montserrat Alternates</button>
+  <button class="font-button" onclick="changeFont(2)">Times New Roman</button>
+  <button class="font-button" onclick="changeFont(3)">Courier New</button>
+  
 
+  <script>
+    function changeFont(fontNumber) {
+      var rootElement = document.documentElement;
+      
+      if (fontNumber === 1) {
+        rootElement.style.fontFamily = 'Montserrat Alternates, sans-serif';
+        localStorage.setItem("selectedFont", "Montserrat Alternates, sans-serif");
+      } else if (fontNumber === 2) {
+        rootElement.style.fontFamily = 'Times New Roman, serif';
+        localStorage.setItem("selectedFont", "Times New Roman, serif");
+      } else if (fontNumber === 3) {
+        rootElement.style.fontFamily = 'Courier New, monospace';
+        localStorage.setItem("selectedFont", "Courier New, monospace");
+      }
+    }
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>RGB зміна кольору фону</title>
-</head>
-<body>
-	<h1>RGB зміна кольору фону</h1>
-	
-	<label for="redRange">Червоний:</label>
-	<input type="range" id="redRange" min="0" max="255" value="255">
-	<br>
-	<label for="greenRange">Зелений:</label>
-	<input type="range" id="greenRange" min="0" max="255" value="255">
-	<br>
-	<label for="blueRange">Синій:</label>
-	<input type="range" id="blueRange" min="0" max="255" value="255">
-	<br><br>
-	
-	<button id="applyButton">Застосувати</button>
-	<button id="applyAllButton">Застосувати на всіх сторінках</button>
-
-	<script>
-		const redRange = document.getElementById("redRange");
-		const greenRange = document.getElementById("greenRange");
-		const blueRange = document.getElementById("blueRange");
-		const applyButton = document.getElementById("applyButton");
-		const applyAllButton = document.getElementById("applyAllButton");
-
-		applyButton.addEventListener("click", () => {
-			const redValue = redRange.value;
-			const greenValue = greenRange.value;
-			const blueValue = blueRange.value;
-			document.body.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
-		});
-
-		applyAllButton.addEventListener("click", () => {
-			const redValue = redRange.value;
-			const greenValue = greenRange.value;
-			const blueValue = blueRange.value;
-			const color = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
-			localStorage.setItem("backgroundColor", color);
-			alert("Колір фону збережено!");
-		});
-
-		// При завантаженні сторінки перевіряємо, чи є збережений колір фону в localStorage
-		if (localStorage.getItem("backgroundColor")) {
-			document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
-		}
-	</script>
+    if (localStorage.getItem("selectedFont")) {
+      var selectedFont = localStorage.getItem("selectedFont");
+      var rootElement = document.documentElement;
+      rootElement.style.fontFamily = selectedFont;
+    }
+  </script>
 </body>
 </html>
-
- 

@@ -47,6 +47,7 @@
 </body>
 </html>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,9 +57,19 @@
 	
 
 	<script>
-		if (localStorage.getItem("backgroundColor")) {
-			document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
-		}
+		if (localStorage.getItem("selectedFont")) {
+      var selectedFont = localStorage.getItem("selectedFont");
+      var rootElement = document.documentElement;
+      rootElement.style.fontFamily = selectedFont;
+    }
 	</script>
+
+<script>
+  if (localStorage.getItem("backgroundColor")) {
+    document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
+  }
+</script>
 </body>
 </html>
+
+
