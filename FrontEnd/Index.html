@@ -50,13 +50,9 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Інша сторінка</title>
-</head>
 <body>
 	
-
-	<script>
+  <script>
 		if (localStorage.getItem("selectedFont")) {
       var selectedFont = localStorage.getItem("selectedFont");
       var rootElement = document.documentElement;
@@ -64,12 +60,13 @@
     }
 	</script>
 
-<script>
-  if (localStorage.getItem("backgroundColor")) {
-    document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
-  }
-</script>
+	<script>
+		if (localStorage.getItem("backgroundColor")) {
+			document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
+		}
+	</script>
 </body>
 </html>
+
 
 
